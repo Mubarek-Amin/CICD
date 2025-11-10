@@ -28,6 +28,7 @@ jobs:
     - name: run tests
       run: |
         python -m unittest discover
+      if: success()
 
     - name: notify of success
       run: echo "Test passed on Python ${{matrix.python-version}} "
