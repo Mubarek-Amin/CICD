@@ -1,0 +1,18 @@
+name: custom Action CI
+
+on: [push]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+
+        steps:
+        - name: checkout code
+          uses: actions/checkout@v2
+        
+
+        - name: hello world custom action
+          uses: Mubarek-Amin/custom-action@main
+          with:
+            who-to-greet: "Amin"
