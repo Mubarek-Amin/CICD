@@ -15,4 +15,4 @@ jobs:
         - name: hello world custom action
           uses: Mubarek-Amin/custom-action@main
           with:
-            who-to-greet: "Amin"
+            who-to-greet: "Good Beard"
