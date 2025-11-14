@@ -1,4 +1,4 @@
-name: ECS Image Build and Push
+name: DockerHub Image Build and Push
 
 on: [push]
 
