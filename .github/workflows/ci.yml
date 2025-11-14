@@ -1,0 +1,38 @@
+name: hello-test
+
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: [3.8,3.9]
+
+    steps:
+    - name: checkout code
+      uses: actions/checkout@v5
+
+    - name: setup python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{matrix.python-version}}
+
+    - name: install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: run tests
+      run: |
+        python -m unittest discover
+      if: success()
+
+    - name: notify of success
+      run: echo "Test passed on Python ${{matrix.python-version}} "
+      if: success()
+
+    
+      
